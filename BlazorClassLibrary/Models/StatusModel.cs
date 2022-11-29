@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BlazorClassLibrary.Models;
-pu class StatusModel
+﻿namespace BlazorClassLibrary.Models;
+ public class StatusModel
 {
+    [BsonId]
+    [BsonRepresentation(BsonType.ObjectId)]
+    public string Id { get; set; }
+    public string StatusName { get; set; }
+    public string StatusDescription { get; set; }
 }
