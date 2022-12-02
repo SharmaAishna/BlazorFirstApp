@@ -23,8 +23,10 @@ public class DbConnection : IDbConnection
     public DbConnection(IConfiguration config)
     {
         _config = config;
+        
         Client = new MongoClient(_config.GetConnectionString(_connectionId));
         DbName = _config["DatabaseName"];
+        _db = Client.GetDatabase(DbName);
         CategoryCollection = _db.GetCollection<CategoryModel>(CategoryCollectionName);
         StatusCollection = _db.GetCollection<StatusModel>(StatusCollectionName);
         UserCollection = _db.GetCollection<UserModel>(UserCollectionName);
