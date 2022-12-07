@@ -1,11 +1,11 @@
-﻿@page "/Details/id"
+﻿@page "/Details/{Id}"
 @inject ISuggestionData suggestionData
 @inject NavigationManager navManager
 
 <h1>Suggestion Details</h1>
 <div>
     <div>
-        @if(suggestion is not Nullable)
+        @if(suggestion is not null)
         {
             <div>
                 <div>
@@ -15,7 +15,7 @@
                          <div>@GetUpVoteBottomtext()</div>
                     </div>
                     <div>
-                        <div>@suggestion.DteCreated.ToString("MM.dd.yyyy")</div>
+                        <div>@suggestion.DateCreated.ToString("MM.dd.yyyy")</div>
                     </div>
                 </div>
                 <div>
@@ -34,7 +34,7 @@
     </div>
 </div>
 
-@if(suggestion.SuggestionsStatus is not null)
+@if(suggestion?.SuggestionsStatus is not null)
 {
  <div>
     <div>

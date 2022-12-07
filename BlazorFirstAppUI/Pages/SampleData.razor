@@ -21,11 +21,21 @@ else
 {
     <button class="btn btn-primary" @onclick="CreateStatuses">Create Statuses</button>
 }
-<button class="btn btn-danger" @onclick="GenerateSampleData">Generate Sample Data</button>
+@if (SampleDataCreated)
+{
+    <h4>Sample Data have been Created</h4>
+}
+else
+{
+    <button class="btn btn-danger" @onclick="GenerateSampleData">Generate Sample Data</button>
+}
+
+
 
 @code {
     private bool categoriesCreated = false;
     private bool StatusesCreated = false;
+    private bool SampleDataCreated = false;
     private async Task CreateCategories()
     {
         var categories = await categoryData.GetAllCategories();
@@ -114,7 +124,7 @@ else
         var foundUser = await userData.GetUsersFromAuthentication("abc-123");
         var categories = await categoryData.GetAllCategories();
         var statuses = await statusData.GetAllStatuses();
-       
+
         HashSet<string> votes = new();
         votes.Add("1");
         votes.Add("2");
@@ -128,6 +138,7 @@ else
                 Category = categories[0],
                 Suggestion = "Our First Suggestion",
                 Description = "Suggestion by sample data",
+                ApprovedForRelease=true
 
             };
         await suggestData.CreateSuggestion(suggestion);
@@ -139,7 +150,8 @@ else
                 Suggestion = "Our second Suggestion",
                 Description = "Suggestion by sample data",
                 SuggestionsStatus = statuses[0],
-                OwnerNotes = "This is    note for status."
+                OwnerNotes = "This is    note for status.",
+                ApprovedForRelease = true
             };
         await suggestData.CreateSuggestion(suggestion);
         suggestion = new()
@@ -150,8 +162,9 @@ else
                 Suggestion = "Our Third Suggestion",
                 Description = "Suggestion by sample data",
                 SuggestionsStatus = statuses[1],
-                OwnerNotes = "This is note for status."
-             
+                OwnerNotes = "This is note for status.",
+                ApprovedForRelease = true
+
             };
         await suggestData.CreateSuggestion(suggestion);
         suggestion = new()
@@ -163,7 +176,8 @@ else
                 Description = "Suggestion by sample data",
                 SuggestionsStatus = statuses[2],
                 UserVotes = votes,
-                OwnerNotes = "This is note for status."
+                OwnerNotes = "This is note for status.",
+                ApprovedForRelease = true
             };
         await suggestData.CreateSuggestion(suggestion);
         votes.Add("4");
@@ -176,8 +190,10 @@ else
                 Description = "Suggestion by sample data",
                 SuggestionsStatus = statuses[3],
                 UserVotes = votes,
-                OwnerNotes = "This is note for status."
+                OwnerNotes = "This is note for status.",
+                ApprovedForRelease = true
             };
         await suggestData.CreateSuggestion(suggestion);
+        SampleDataCreated = true;
     }
     }

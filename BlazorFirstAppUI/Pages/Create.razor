@@ -1,0 +1,58 @@
+﻿@page "/Create"
+@using BlazorFirstAppUI.Models
+@inject ICategoryData categoryData
+@inject ISuggestionData suggestionData
+@inject IUserData userData
+@inject NavigationManager navManager
+
+
+<h1>Make A Suggestion</h1>
+<div>
+    <div>
+        <div>
+            <button @onclick="ClosePage"></button>
+        </div>
+        @if(categories is not null)
+        {
+            
+        }
+       @* <EditForm Model="suggestion" OnValidSubmit="CreateSuggestion">
+            <DataAnnotationsValidator/>
+            <ValidationSummary />
+        </EditForm>*@
+    </div>
+</div>
+
+@code {
+    private CreateSuggestionModel suggestion = new();
+    private List<CategoryModel> categories;
+    private UserModel LoggedInUser;
+
+    protected async override Task OnInitializedAsync()
+    {
+        categories = await categoryData.GetAllCategories();
+        //TODO - Replace with user lookUp
+        LoggedInUser = await userData.GetUsersFromAuthentication("abc-123");
+    }
+    private void ClosePage()
+    {
+        navManager.NavigateTo("/");
+    }
+    private async Task CreateSuggestion()
+    {
+        SuggestionModel sug=new();
+        sug.Suggestion = suggestion.Suggestion;
+        sug.Description = suggestion.Description;
+        sug.Author = new BasicUserModel(LoggedInUser);
+        sug.Category = categories.Where(cat => cat.Id == suggestion.CategoryId).FirstOrDefault();
+
+        if (sug.Category is null)
+        {
+            suggestion.CategoryId = "";
+            return;
+        }
+        await suggestionData.CreateSuggestion(sug);
+        suggestion = new();
+        ClosePage();
+    }
+}
