@@ -1,5 +1,6 @@
 ﻿@page "/Create"
-@using BlazorFirstAppUI.Models
+@using BlazorFirstAppUI.Models;
+@using BlazorFirstAppUI.Components;
 @inject ICategoryData categoryData
 @inject ISuggestionData suggestionData
 @inject IUserData userData
@@ -14,12 +15,41 @@
         </div>
         @if(categories is not null)
         {
-            
+           <EditForm Model="suggestion" OnInvalidSubmit="CreateSuggestion">
+                <DataAnnotationsValidator />
+                <ValidationSummary/>
+             <div>
+                <label for="suggestion-text">Suggestion</label>
+                <div>Focus on the technology to learn about.</div>
+                <InputText id="suggestion-text" @bind-Value="suggestion.Suggestion" />
+             </div>
+             <div>
+                <label for="category">Catgory</label>
+                <div>Choose one category.</div>
+                  <div>
+                  <MyInputRadioGroup id="category" @bind-Value="suggestion.CategoryId">
+                        @foreach(var cat in categories)
+                        {
+                            <div>
+                                <InputRadio Value="@cat.Id" id="@cat.Id"/>
+                                <label for="@cat.Id">@cat.CategoryName - @cat.CategoryDescription</label>
+                            </div>
+                        }
+                    </MyInputRadioGroup>
+                </div>
+
+             </div>
+               <div>
+                   <label for="description">Description</label>
+                   <div>Describe your suggestion.</div>
+                   <InputTextArea id="description" @bind-Value="suggestion.Description" />
+               </div>
+               <div>
+                   <button type="submit">Suggest</button>
+               </div>
+           </EditForm>
+    
         }
-       @* <EditForm Model="suggestion" OnValidSubmit="CreateSuggestion">
-            <DataAnnotationsValidator/>
-            <ValidationSummary />
-        </EditForm>*@
     </div>
 </div>
 
@@ -41,7 +71,7 @@
     private async Task CreateSuggestion()
     {
         SuggestionModel sug=new();
-        sug.Suggestion = suggestion.Suggestion;
+        sug.Suggestion =suggestion.Suggestion;
         sug.Description = suggestion.Description;
         sug.Author = new BasicUserModel(LoggedInUser);
         sug.Category = categories.Where(cat => cat.Id == suggestion.CategoryId).FirstOrDefault();

@@ -9,18 +9,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Pages\Create.razor" />
-    <Content Remove="Pages\Details.razor" />
+    <Content Remove="Pages\MyInputRadioGroup.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\" />
     <Folder Include="wwwroot\Images\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Identity.Web" Version="1.25.8" />
-    <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.25.8" />
+    <PackageReference Include="Microsoft.Identity.Web" Version="1.25.10" />
+    <PackageReference Include="Microsoft.Identity.Web.UI" Version="1.25.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,16 +26,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Pages\Create.razor" />
-    <None Include="Pages\Details.razor" />
+    <None Include="Pages\MyInputRadioGroup.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\Create.razor" />
+    <_ContentIncludedByDefault Remove="Pages\MyInputRadioGroup.razor" />
   </ItemGroup>
 
   <ItemGroup>
-    <_ContentIncludedByDefault Remove="Pages\Create.razor" />
+    <UpToDateCheckInput Remove="Pages\MyInputRadioGroup.razor" />
   </ItemGroup>
 
 </Project>
