@@ -12,6 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppUI", "BlazorAppUI\BlazorAppUI.csproj", "{05D2F113-BC1F-4D4F-ACD8-CBA0CF1135EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4FA259A1-121C-4507-A4DA-6CC3A87E1B6A} = {4FA259A1-121C-4507-A4DA-6CC3A87E1B6A}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +31,10 @@ Global
 		{4FA259A1-121C-4507-A4DA-6CC3A87E1B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FA259A1-121C-4507-A4DA-6CC3A87E1B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FA259A1-121C-4507-A4DA-6CC3A87E1B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05D2F113-BC1F-4D4F-ACD8-CBA0CF1135EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05D2F113-BC1F-4D4F-ACD8-CBA0CF1135EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05D2F113-BC1F-4D4F-ACD8-CBA0CF1135EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05D2F113-BC1F-4D4F-ACD8-CBA0CF1135EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
