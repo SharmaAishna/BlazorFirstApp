@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppUI", "BlazorAppUI\BlazorAppUI.csproj", "{05D2F113-BC1F-4D4F-ACD8-CBA0CF1135EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppUI", "BlazorAppUI\BlazorAppUI.csproj", "{05D2F113-BC1F-4D4F-ACD8-CBA0CF1135EE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4FA259A1-121C-4507-A4DA-6CC3A87E1B6A} = {4FA259A1-121C-4507-A4DA-6CC3A87E1B6A}
 	EndProjectSection
