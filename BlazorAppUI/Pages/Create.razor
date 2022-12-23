@@ -1,5 +1,7 @@
 ﻿@page "/Create"
 @using BlazorAppUI.Models;
+@attribute [Authorize]
+@inject AuthenticationStateProvider authProvider
 @inject ICategoryData categoryData
 @inject ISuggestionData suggestionData
 @inject IUserData userData
@@ -68,6 +70,7 @@
     protected async override Task OnInitializedAsync()
     {
         categories = await categoryData.GetAllCategories();
+        
         //TODO - Replace with user lookUp
         LoggedInUser = await userData.GetUsersFromAuthentication("abc-123");
     }
