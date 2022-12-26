@@ -37,7 +37,7 @@ app.UseRewriter(
         }
     }
     ));
-
+app.MapControllers();
 app.MapBlazorHub();
 app.MapFallbackToPage("/_Host");
 
