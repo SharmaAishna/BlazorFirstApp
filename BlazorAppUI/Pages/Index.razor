@@ -11,14 +11,14 @@
     <button @onclick="LoadCreatePage" class="suggest-btn btn btn-outline-light btn-lg text-uppercase">Suggest</button>
 </div>
 <div class="row">
-    <div class="suggestions-count col-md-4 text-light mt-2">@suggestions?.Count Suggestions</div>
+    <div class="suggestions-count col-md-4 text-dark mt-2">@suggestions?.Count Suggestions</div>
     <div class="col-md-4 col-xl-5 btn-group">
         <button class="btn btn-order @SortedByNewClass(true)" @onclick="(()=>OrderBynew(true))">New</button>
         <button class="btn btn-order @SortedByNewClass(false)" @onclick="(()=>OrderBynew(false))">Popular</button>
     </div>
     <div class="col-md-4 col-xl-3 search-box">
-        <input type="text" placelder="Search"
-            aria-label="Search box" class="form-control rounded-control"
+        <input type="text" placeholder="Search"
+            aria-label="Search box" class="form-control  rounded-control"
                @oninput="((txt) => OnsearchInput((string)txt.Value))" />
     </div>
 </div>
