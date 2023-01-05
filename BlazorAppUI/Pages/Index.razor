@@ -8,7 +8,7 @@
 @inject ProtectedSessionStorage sessionStorage
 <h1 class="page-heading text-uppercase mb-4">Suggestions</h1>
 <div class="suggestion-container">
-    <button @onclick="LoadCreatePage" class="suggest-btn btn btn-outline-light btn-lg text-uppercase">Suggest</button>
+    <button @onclick="LoadCreatePage" class=" btn btn-main btn-lg text-uppercase">Suggest</button>
 </div>
 <div class="row">
     <div class="suggestions-count col-md-4 text-dark mt-2">@suggestions?.Count Suggestions</div>
@@ -30,7 +30,7 @@
                 <div class="suggestion-entry">
                     <div class="@GetVoteClass(s)" @onclick="(() => VoteUp(s))">
                         <div class="text-uppercase">@GetUpvoteTopText(s)</div>
-                        <span class="oi oi-caret-top" style="font-size:3rem;"></span>
+                        <span class="oi oi-caret-top entry-upvote" ></span>
                         <div>@GetUpVoteBottomtext(s)</div>
                     </div>
                     <div class="suggestion-entry-text">
