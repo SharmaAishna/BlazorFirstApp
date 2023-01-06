@@ -1,9 +1,11 @@
-﻿<CascadingAuthenticationState>
+﻿@using BlazorAppUI.Pages
+
+<CascadingAuthenticationState>
     <Router AppAssembly="@typeof(App).Assembly">
         <Found Context="routeData">
             <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
              <NotAuthorized>
-                <BlazorAppUI.Pages.NotAuthorized />
+                <NotAuthorizedComponent />
              </NotAuthorized>
            </AuthorizeRouteView>
             <FocusOnNavigate RouteData="@routeData" Selector="h1" />
